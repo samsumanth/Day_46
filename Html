@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmployeePayroll</title>
+    <link rel="stylesheet" a href="employee.css">
+    <link rel="stylesheet" a href="employee.js">
+</head>
+<body >
+    <div class="header">
+    <header class="headerContainer header">
+    <div class="logo-content"> 
+            <img src="logo.png" alt="" width="50px">
+        <div>
+        <span class="emp-text" id="emp-txt1">Employee</span><br/>
+        <span class="emp-text" id="emp-txt2">Payroll</span>
+        </div>
+    </div>
+    </header>
+    </div>
+    <hr/>
+    <div class="whole-container">
+    <div class="mainContainer" >
+        <br/>
+        <form class="form" action="#" onreset="resetForm()" onsubmit="save()">
+        <label for="nameform" id="emp">Employee Payroll Form</label>
+        <div class="nameclass">
+            <br/>
+        <label for="name" id="name">Name:</label>
+        <input type="text" id="textbox" name = "textname" placeholder="Enter name here:" required>
+        <error-output class="text-error" for="text"></error-output>
+        </div>
+    </form>
+        <br/>
+        <div class="imgclass">
+            <label for="image" id="img">Profile image:</label>
+            <input type="radio" id="button" required>
+            <img src="profile1.jpg" width="40px" alt="Avatar" id="img1">
+            <input type="radio" id="button1" required >
+            <img src="profile2.jfif" alt="Avatar" width="40px" id="img2">
+            <input type="radio" id="button2" required>
+            <img src="profile3.jpg" alt="Avatar" width="50px" id="img3">
+            <input type="radio" id="button3" required>
+            <img src="profile4.jpg" alt="Avatart" width="50px" id="img4">
+        </div>
+        <br/>
+        <div class="gender">
+            <label for="gender" id="gender">Gender</label>
+            <input type="radio" id="button4">
+            <label for="Male" id="Male">Male</label>
+            <input type="radio" id="button5">
+            <label for="Male" id="Female">Female</label>
+        </div>
+        <br/>
+        <div class="Dept">
+            <label for="Department" id="dept">Department:</label>
+            <input type="checkbox" id="box1">
+            <label for="HR" id="deptnm1">HR</label>
+            <input type="checkbox" id="box2">
+            <label for="Sales" id="deptnm2">Sales</label>
+            <input type="checkbox" id="box3">
+            <label for="finance" id="deptnm3">Finance</label>
+            <input type="checkbox" id="box4">
+            <label for="engineer" id="deptnm4">Engineer</label>
+            <input type="checkbox" id="box4">
+            <label for="finance" id="deptnm5">Others</label>
+        </div>
+        <br/>
+        <div class="Sal"> 
+
+            <label for="range bar" id="sal">Select Salary</label>
+                <input type="range" id="salary" name="salary" min="10000" max="120000" value="50000">
+                <output class="salary-output" for="salary">50,000</output>
+        </div>
+        <br/>
+        <div class="day">
+            <label for="start" id="date">Start Date:</label>
+            <select name="date" id="ddmmyy">
+                <option value="Day">Day</option>
+                <option value="Sun">Sun</option>
+                <option value="Mon">Mon</option>
+                <option value="Tue">Tue</option>
+                <option value="Wed">Wed</option>
+                <option value="Thu">Thu</option>
+                <option value="Fri">Fri</option>
+                <option value="Sat">Sat</option>
+            </select>
+            <select name="month" id="month">
+                <option value="Month">Month</option>
+                <option value="Jan">Jan</option>
+                <option value="Feb">Feb</option>
+                <option value="Mar">Mar</option>
+                <option value="Apr">Apr</option>
+                <option value="May">May</option>
+                <option value="Jun">Jun</option>
+                <option value="Jul">Jul</option>
+                <option value="Aug">Aug</option>
+                <option value="Sept">Sept</option>
+                <option value="Oct">Oct</option>
+                <option value="Nov">Nov</option>
+                <option value="Dec">Dec</option>
+            </select>
+            <select name="year" id="year">
+                <option value="Year">Year</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+            </select>
+        </div>    
+            <br/><br/>
+            <div class="Note-description">
+                <label for="note" id="description">Notes:</label>
+                <input type="text" id="textbox2">
+            </div>
+            <br/>
+            <div class="button">
+                <input type="button" value="Cencel" id="cancel-button">
+                <input type="button" value="Submit" id="submit-button">
+                <input type="button" value="Reset" id="reset-button">
+            </div>
+            <div class="">
+                
+            </div>
+        
+    </div>
+</div>
+</body>
+    <script>
+            const text = document.querySelector('#textbox');
+            const texterror = document.querySelector('#text-error');
+            text.addEventListener('input',function() {
+                let nameRegex = "^[A-Z a-z]{1}+[a-z]{3,}$";
+                if (nameRegex.test(text.value)) 
+                {
+                    texterror.textContent = "";
+                }
+                else
+                {
+                    texterror.textContent = "Name is incorrect:";
+                }
+            });
+            const salary = document.querySelector('#salary');
+                const output = document.querySelector('.salary-output');
+                output.textContent = salary.value;
+                salary.addEventListener ('input',function() {
+                    output.textContent = salary.value;
+                });
+    </script>
+</html>
